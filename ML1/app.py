@@ -10,18 +10,18 @@ pd.options.plotting.backend = "plotly"
 @st.cache
 def return_data():
     data = {}
-    data['Load'] = pd.read_csv("./data_input/Load.csv",sep=';')
+    data['Load'] = pd.read_csv("./ML1/data_input/Load.csv",sep=';')
     # data['Load'] .index = pd.to_datetime(data['Load']['DateTime']).dt.round('H')
-    data['HRO'] = pd.read_csv("./data_input/HRO_tab.csv")
+    data['HRO'] = pd.read_csv("./ML1/data_input/HRO_tab.csv")
     data['HRO'].index = pd.to_datetime(data['HRO'][['Year','Month','Day']])
     data['HRO'].drop(['Year','Month','Day'],axis=1,inplace=True)
-    data['HRE'] = pd.read_csv("./data_input/HRE_tab.csv")
+    data['HRE'] = pd.read_csv("./ML1/data_input/HRE_tab.csv")
     data['HRE'].index = pd.to_datetime(data['HRE'][['Year','Month','Day']])
     data['HRE'].drop(['Year','Month','Day'],axis=1,inplace=True)
-    data['TA'] = pd.read_csv("./data_input/TA_tab.csv")
+    data['TA'] = pd.read_csv("./ML1/data_input/TA_tab.csv")
     data['TA'].index = pd.to_datetime(data['TA'][['Year','Month','Day']])
     data['TA'].drop(['Year','Month','Day'],axis=1,inplace=True)
-    data['TP'] = pd.read_csv("./data_input/TP_tab.csv")
+    data['TP'] = pd.read_csv("./ML1/data_input/TP_tab.csv")
     data['TP'].index = pd.to_datetime(data['TP'][['Year','Month','Day']])
     data['TP'].drop(['Year','Month','Day'],axis=1,inplace=True)
     return data
