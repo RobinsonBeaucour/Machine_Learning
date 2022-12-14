@@ -11,7 +11,7 @@ pd.options.plotting.backend = "plotly"
 def return_data():
     data = {}
     data['Load'] = pd.read_csv("./ML1/data_input/Load.csv",sep=';')
-    data['Load'].index = pd.to_datetime(data['Load']['DateTime']).dt.round('H')
+    data['Load'].index = pd.to_datetime(data['Load']['DateTime'],format='%d/%m/%Y %H:%M:%S.%f').dt.round('H')
     data['Load'].drop(['DateTime'],axis=1,inplace=True)
     data['Load'].sort_index(inplace=True)
     data['HRO'] = pd.read_csv("./ML1/data_input/HRO_tab.csv")
