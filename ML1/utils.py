@@ -93,7 +93,7 @@ def features_importance(model,return_='show'):
     if return_ == 'fig':
         return fig
 
-def temperature_pca(TA,n_components,location='all'):
+def temperature_pca(TA,n_components,location='all',prefix=''):
     """
     This function performs principal component analysis (PCA) on the given temperature data and returns the transformed features as a dataframe.
     
@@ -115,5 +115,5 @@ def temperature_pca(TA,n_components,location='all'):
         features = pca.fit_transform(TA[Country_temperature(TA,location)])
         
     # Return the transformed features as a dataframe
-    return pd.DataFrame(features,columns=[f"{location}_PCA_{k}" for k in range(1,features.shape[1]+1)],index=TA.index)
+    return pd.DataFrame(features,columns=[f"{prefix}_{location}_PCA_{k}" for k in range(1,features.shape[1]+1)],index=TA.index)
 
